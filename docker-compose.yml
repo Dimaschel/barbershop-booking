@@ -1,0 +1,31 @@
+services:
+  db:
+    image: postgres:16.4
+    environment:
+      POSTGRES_DB: barbershop
+      POSTGRES_USER: barber
+      POSTGRES_PASSWORD: barber
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U barber -d barbershop"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  app:
+    build: .
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/barbershop
+      SPRING_DATASOURCE_USERNAME: barber
+      SPRING_DATASOURCE_PASSWORD: barber
+    ports:
+      - "8080:8080"
+
+volumes:
+  postgres_data:
