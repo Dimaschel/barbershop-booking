@@ -45,6 +45,12 @@ docker compose down
 curl http://localhost:8080/api/health
 ```
 
+## Протокол проверки запуска
+
+Проверка выполнена 5 ноября 2026 года на macOS 15.6.1 (Apple Silicon), Docker Engine 28.4.0 и Docker Compose v2.39.4.
+
+Выполнены команды `docker compose up --build -d` и `curl -fsS http://localhost:8080/api/health`. Сборка образа завершилась успешно, контейнер PostgreSQL перешёл в состояние `healthy`, контейнер приложения запустился, endpoint вернул `{"status":"ok","service":"barbershop-booking"}`.
+
 ## Текущее состояние
 
 В лабораторной работе № 1 подготовлены каркас приложения, подключение к PostgreSQL и проверочный endpoint. Функции записи, расписания и управления услугами будут уточняться в лабораторной работе № 2.

@@ -93,7 +93,7 @@ MIT. Проект является новым, поэтому исходная �
 
 | Дата | Среда | Результат |
 |---|---|---|
-| 2026-11-05 | Подготовка проекта | Добавлены Docker Compose, PostgreSQL и endpoint проверки запуска. Финальную проверку после публикации выполнить на чистой машине. |
+| 2026-11-05 | macOS 15.6.1, Apple Silicon, Docker Engine 28.4.0, Docker Compose v2.39.4 | Выполнены `docker compose up --build -d` и `curl -fsS http://localhost:8080/api/health`. Сборка успешна, PostgreSQL healthy, приложение запущено, endpoint вернул `status=ok`. |
 
 ## Первые наблюдения и вопросы
 
