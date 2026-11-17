@@ -1,0 +1,12 @@
+stateDiagram-v2
+    [*] --> CREATED
+    CREATED --> CONFIRMED: подтверждение
+    CREATED --> CANCELLED: отмена
+    CONFIRMED --> RESCHEDULED: перенос
+    RESCHEDULED --> CONFIRMED: новое время выбрано
+    CONFIRMED --> COMPLETED: визит состоялся
+    CONFIRMED --> CANCELLED: отмена по правилам
+    CREATED --> EXPIRED: время истекло
+    CANCELLED --> [*]
+    COMPLETED --> [*]
+    EXPIRED --> [*]

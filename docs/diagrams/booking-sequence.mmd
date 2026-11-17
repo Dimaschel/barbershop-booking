@@ -1,0 +1,10 @@
+sequenceDiagram
+    actor C as Клиент
+    participant API as Spring Boot API
+    participant DB as PostgreSQL
+    C->>API: POST /bookings(service, barber, slot)
+    API->>DB: Проверить свободен ли слот
+    DB-->>API: Слот свободен
+    API->>DB: Сохранить Booking
+    DB-->>API: Booking CREATED
+    API-->>C: 201 Created и данные записи

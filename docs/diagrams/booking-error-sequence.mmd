@@ -1,0 +1,9 @@
+sequenceDiagram
+    actor C as Клиент
+    participant API as Spring Boot API
+    participant DB as PostgreSQL
+    C->>API: POST /bookings(service, barber, slot)
+    API->>DB: Проверить свободен ли слот
+    DB-->>API: Слот уже занят
+    API-->>C: 409 Conflict «Это время уже занято»
+    Note over API,DB: Вторая запись не сохраняется

@@ -1,0 +1,10 @@
+flowchart LR
+    Client[Клиент]
+    Barber[Барбер]
+    Admin[Администратор]
+    App((Barbershop Booking))
+    DB[(PostgreSQL)]
+    Client -->|регистрация, запись, отмена| App
+    Barber -->|расписание, статусы| App
+    Admin -->|услуги, барберы, записи| App
+    App -->|пользователи и записи| DB
