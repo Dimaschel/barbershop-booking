@@ -1,0 +1,22 @@
+flowchart LR
+    Client[Клиент]
+    Barber[Барбер]
+    Admin[Администратор]
+    subgraph System[Barbershop Booking]
+      UC1((FR-1 Регистрация и вход))
+      UC2((FR-2 Просмотр услуг))
+      UC3((FR-3 Просмотр барберов))
+      UC4((FR-4 Свободные слоты))
+      UC5((FR-5 Создание записи))
+      UC6((FR-6 Отмена или перенос))
+      UC7((FR-7 Расписание барбера))
+      UC8((FR-8 Управление данными))
+    end
+    Client --- UC1
+    Client --- UC2
+    Client --- UC3
+    Client --- UC4
+    Client --- UC5
+    Client --- UC6
+    Barber --- UC7
+    Admin --- UC8

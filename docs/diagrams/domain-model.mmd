@@ -1,0 +1,36 @@
+classDiagram
+    class User {
+      +Long id
+      +String name
+      +String email
+      +Role role
+    }
+    class Barber {
+      +Long id
+      +String name
+      +String specialization
+      +boolean active
+    }
+    class Service {
+      +Long id
+      +String name
+      +int durationMinutes
+      +decimal price
+      +boolean active
+    }
+    class TimeSlot {
+      +Long id
+      +LocalDate date
+      +LocalTime startTime
+      +SlotStatus status
+    }
+    class Booking {
+      +Long id
+      +BookingStatus status
+      +Instant createdAt
+    }
+    User "1" --> "0..*" Booking : creates
+    Barber "1" --> "0..*" Booking : performs
+    Service "1" --> "0..*" Booking : selected for
+    TimeSlot "1" --> "0..1" Booking : reserved by
+    Barber "1" --> "0..*" TimeSlot : owns
